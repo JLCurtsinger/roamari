@@ -68,7 +68,8 @@ const Index = () => {
       <section className="relative pt-32 pb-20 px-4 bg-gradient-hero min-h-[600px] flex items-center">
         <div className="container mx-auto text-center text-white">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Explore, Work, Live—
+            Explore, Work, Live
+            <br />
             <span className="bg-gradient-sunset text-transparent bg-clip-text">Anywhere</span>
           </h1>
           <p className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto">

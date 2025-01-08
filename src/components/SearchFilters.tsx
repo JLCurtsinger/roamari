@@ -10,7 +10,7 @@ export const SearchFilters = () => {
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           <Input
             type="text"
-            placeholder="Where to?"
+            placeholder="Search destinations"
             className="pl-10 w-full bg-transparent border-gray-200 focus:border-gray-300 transition-colors"
           />
         </div>
