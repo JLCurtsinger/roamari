@@ -1,33 +1,62 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, MapPin, Calendar, DollarSign } from "lucide-react";
+import { Search, Calendar, Users } from "lucide-react";
 
 export const SearchFilters = () => {
   return (
-    <div className="bg-white/95 p-6 rounded-xl shadow-lg max-w-4xl mx-auto backdrop-blur-md">
-      <div className="flex flex-col md:flex-row gap-4">
-        <div className="flex-grow relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-          <Input
-            type="text"
-            placeholder="Search destinations"
-            className="pl-10 w-full bg-transparent border-gray-200 focus:border-gray-300 transition-colors"
-          />
+    <div className="bg-white/95 p-2 rounded-full shadow-lg max-w-6xl mx-auto backdrop-blur-md">
+      <div className="flex flex-col md:flex-row items-center gap-2 md:gap-0">
+        {/* Where Section */}
+        <div className="flex-grow relative group min-w-[200px] md:min-w-[250px]">
+          <div className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors">
+            <div className="text-sm font-medium text-gray-800">Where</div>
+            <Input
+              type="text"
+              placeholder="Search destinations"
+              className="border-0 p-0 h-auto text-base placeholder:text-gray-500 focus-visible:ring-0 bg-transparent"
+            />
+          </div>
         </div>
-        <Button variant="outline" className="flex items-center gap-2 border-gray-200 hover:border-gray-300">
-          <MapPin className="w-4 h-4" />
-          Location
-        </Button>
-        <Button variant="outline" className="flex items-center gap-2 border-gray-200 hover:border-gray-300">
-          <Calendar className="w-4 h-4" />
-          Dates
-        </Button>
-        <Button variant="outline" className="flex items-center gap-2 border-gray-200 hover:border-gray-300">
-          <DollarSign className="w-4 h-4" />
-          Budget
-        </Button>
-        <Button className="bg-gradient-sunset text-white hover:opacity-90 transition-opacity">
-          Search
+
+        {/* Vertical Separator */}
+        <div className="hidden md:block w-px h-14 bg-gray-200 mx-2"></div>
+
+        {/* Check-in Section */}
+        <div className="relative group">
+          <div className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors">
+            <div className="text-sm font-medium text-gray-800">Check in</div>
+            <div className="text-base text-gray-500">Add dates</div>
+          </div>
+        </div>
+
+        {/* Vertical Separator */}
+        <div className="hidden md:block w-px h-14 bg-gray-200 mx-2"></div>
+
+        {/* Check-out Section */}
+        <div className="relative group">
+          <div className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors">
+            <div className="text-sm font-medium text-gray-800">Check out</div>
+            <div className="text-base text-gray-500">Add dates</div>
+          </div>
+        </div>
+
+        {/* Vertical Separator */}
+        <div className="hidden md:block w-px h-14 bg-gray-200 mx-2"></div>
+
+        {/* Who Section */}
+        <div className="relative group">
+          <div className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors">
+            <div className="text-sm font-medium text-gray-800">Who</div>
+            <div className="text-base text-gray-500">Add guests</div>
+          </div>
+        </div>
+
+        {/* Search Button */}
+        <Button 
+          className="ml-2 rounded-full bg-gradient-sunset hover:opacity-90 transition-opacity p-6"
+          size="icon"
+        >
+          <Search className="w-5 h-5 text-white" />
         </Button>
       </div>
     </div>
