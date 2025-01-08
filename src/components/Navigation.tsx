@@ -1,27 +1,23 @@
-import { Menu, Compass } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export const Navigation = () => {
   return (
-    <nav className="fixed top-0 w-full bg-gradient-travel backdrop-blur-md z-50 border-b border-primary/10">
-      <div className="container mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Compass className="h-6 w-6 text-primary" />
-            <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Nomad Work
-            </h1>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          <Link to="/" className="text-2xl font-bold text-primary">
+            RoamWork Hub
+          </Link>
+          <div className="flex items-center gap-4">
+            <Link to="#jobs">
+              <Button variant="ghost">Find Work</Button>
+            </Link>
+            <Link to="#housing">
+              <Button variant="ghost">Find Housing</Button>
+            </Link>
+            <Button variant="default">Sign In</Button>
           </div>
-          <div className="hidden md:flex items-center space-x-6">
-            <a href="#jobs" className="text-secondary hover:text-primary transition-colors">Find Work</a>
-            <a href="#housing" className="text-secondary hover:text-primary transition-colors">Housing</a>
-            <Button variant="default" className="bg-gradient-sunset hover:opacity-90 transition-opacity">
-              Get Started
-            </Button>
-          </div>
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <Menu className="h-6 w-6" />
-          </Button>
         </div>
       </div>
     </nav>
