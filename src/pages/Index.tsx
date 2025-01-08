@@ -65,37 +65,43 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 bg-gradient-travel">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            Work Anywhere,<br />Live Everywhere
+      <section className="relative pt-32 pb-20 px-4 bg-hero-pattern bg-cover bg-center min-h-[600px] flex items-center">
+        <div className="container mx-auto text-center text-white">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            Explore, Work, Live—
+            <span className="bg-gradient-sunset text-transparent bg-clip-text">Anywhere</span>
           </h1>
-          <p className="text-xl text-gray-700 mb-12 max-w-2xl mx-auto">
-            Find remote work opportunities and perfect places to stay around the world.
-            Start your digital nomad journey today.
+          <p className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto">
+            Your journey to a location-independent lifestyle starts here.
           </p>
           
           {/* Category Cards */}
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
-            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div className="bg-white/95 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
               <Home className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Stays</h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">Stays</h3>
               <p className="text-gray-600 mb-4">Find your perfect home away from home</p>
-              <Button variant="outline" className="w-full">Explore Stays</Button>
+              <Button variant="outline" className="w-full bg-gradient-ocean text-white hover:opacity-90">
+                Explore Stays
+              </Button>
             </div>
             
-            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div className="bg-white/95 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
               <Briefcase className="w-12 h-12 text-secondary mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Work</h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">Work</h3>
               <p className="text-gray-600 mb-4">Discover remote work opportunities</p>
-              <Button variant="outline" className="w-full">Find Work</Button>
+              <Button variant="outline" className="w-full bg-gradient-sunset text-white hover:opacity-90">
+                Find Work
+              </Button>
             </div>
             
-            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+            <div className="bg-white/95 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
               <Plane className="w-12 h-12 text-accent mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Travel</h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">Travel</h3>
               <p className="text-gray-600 mb-4">Plan your next adventure</p>
-              <Button variant="outline" className="w-full">Plan Travel</Button>
+              <Button variant="outline" className="w-full bg-gradient-sky text-white hover:opacity-90">
+                Plan Travel
+              </Button>
             </div>
           </div>
           
@@ -104,7 +110,7 @@ const Index = () => {
       </section>
 
       {/* Jobs Section */}
-      <section id="jobs" className="py-16 px-4 bg-white">
+      <section id="work" className="py-16 px-4 bg-white">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Latest Opportunities</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -116,7 +122,7 @@ const Index = () => {
       </section>
 
       {/* Housing Section */}
-      <section id="housing" className="py-16 px-4 bg-gray-50">
+      <section id="stays" className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Stays</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

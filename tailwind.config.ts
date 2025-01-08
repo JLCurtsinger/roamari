@@ -25,37 +25,28 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#0EA5E9", // Ocean Blue
+          DEFAULT: "#0EA5E9",
           foreground: "#FFFFFF",
         },
         secondary: {
-          DEFAULT: "#F97316", // Bright Orange
+          DEFAULT: "#F97316",
           foreground: "#FFFFFF",
         },
         accent: {
-          DEFAULT: "#22C55E", // Forest Green
+          DEFAULT: "#22C55E",
           foreground: "#FFFFFF",
         },
         muted: {
-          DEFAULT: "#D3E4FD", // Soft Blue
+          DEFAULT: "#D3E4FD",
           foreground: "#1E293B",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
         },
       },
       backgroundImage: {
         'gradient-travel': 'linear-gradient(90deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%)',
         'gradient-sunset': 'linear-gradient(90deg, hsla(24, 100%, 83%, 1) 0%, hsla(341, 91%, 68%, 1) 100%)',
+        'gradient-ocean': 'linear-gradient(90deg, hsla(199, 69%, 84%, 1) 0%, hsla(187, 72%, 59%, 1) 100%)',
+        'gradient-sky': 'linear-gradient(90deg, hsla(221, 45%, 73%, 1) 0%, hsla(220, 78%, 29%, 1) 100%)',
+        'hero-pattern': 'linear-gradient(to right bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url("/hero-bg.jpg")',
       },
       borderRadius: {
         lg: "var(--radius)",

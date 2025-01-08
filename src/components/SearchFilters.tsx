@@ -4,29 +4,29 @@ import { Search, MapPin, Calendar, DollarSign } from "lucide-react";
 
 export const SearchFilters = () => {
   return (
-    <div className="bg-white p-4 rounded-xl shadow-lg max-w-4xl mx-auto">
+    <div className="bg-white/95 p-6 rounded-xl shadow-lg max-w-4xl mx-auto backdrop-blur-md">
       <div className="flex flex-col md:flex-row gap-4">
         <div className="flex-grow relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           <Input
             type="text"
-            placeholder="Search by keyword..."
-            className="pl-10 w-full"
+            placeholder="Where to?"
+            className="pl-10 w-full bg-transparent border-gray-200 focus:border-gray-300 transition-colors"
           />
         </div>
-        <Button variant="outline" className="flex items-center gap-2">
+        <Button variant="outline" className="flex items-center gap-2 border-gray-200 hover:border-gray-300">
           <MapPin className="w-4 h-4" />
           Location
         </Button>
-        <Button variant="outline" className="flex items-center gap-2">
+        <Button variant="outline" className="flex items-center gap-2 border-gray-200 hover:border-gray-300">
           <Calendar className="w-4 h-4" />
-          Date Range
+          Dates
         </Button>
-        <Button variant="outline" className="flex items-center gap-2">
+        <Button variant="outline" className="flex items-center gap-2 border-gray-200 hover:border-gray-300">
           <DollarSign className="w-4 h-4" />
-          Price Range
+          Budget
         </Button>
-        <Button className="bg-gradient-sunset text-white hover:opacity-90">
+        <Button className="bg-gradient-sunset text-white hover:opacity-90 transition-opacity">
           Search
         </Button>
       </div>
