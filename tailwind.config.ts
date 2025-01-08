@@ -46,7 +46,7 @@ export default {
         'gradient-sunset': 'linear-gradient(90deg, hsla(24, 100%, 83%, 1) 0%, hsla(341, 91%, 68%, 1) 100%)',
         'gradient-ocean': 'linear-gradient(90deg, hsla(199, 69%, 84%, 1) 0%, hsla(187, 72%, 59%, 1) 100%)',
         'gradient-sky': 'linear-gradient(90deg, hsla(221, 45%, 73%, 1) 0%, hsla(220, 78%, 29%, 1) 100%)',
-        'gradient-hero': 'linear-gradient(to right, #000000 0%, #221F26 100%)',
+        'gradient-hero': 'linear-gradient(to right, #0A0A0A 0%, #221F26 100%)',
       },
       borderRadius: {
         lg: "var(--radius)",
