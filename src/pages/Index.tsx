@@ -65,7 +65,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 bg-hero-pattern bg-cover bg-center min-h-[600px] flex items-center">
+      <section className="relative pt-32 pb-20 px-4 bg-gradient-hero min-h-[600px] flex items-center">
         <div className="container mx-auto text-center text-white">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             Explore, Work, Live—
