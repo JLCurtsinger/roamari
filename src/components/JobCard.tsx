@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, DollarSign, Clock } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface JobCardProps {
   title: string;
@@ -13,6 +14,16 @@ interface JobCardProps {
 }
 
 export const JobCard = ({ title, company, location, salary, type, duration }: JobCardProps) => {
+  const navigate = useNavigate();
+
+  const handleApply = () => {
+    const params = new URLSearchParams({
+      title,
+      company,
+    });
+    navigate(`/job-application?${params.toString()}`);
+  };
+
   return (
     <Card className="hover:shadow-lg transition-shadow">
       <CardHeader>
@@ -41,7 +52,10 @@ export const JobCard = ({ title, company, location, salary, type, duration }: Jo
               {duration}
             </div>
           </div>
-          <Button className="w-full bg-gradient-sunset text-white hover:opacity-90">
+          <Button 
+            className="w-full bg-gradient-sunset text-white hover:opacity-90"
+            onClick={handleApply}
+          >
             Apply Now
           </Button>
         </div>
