@@ -68,6 +68,7 @@ const Index = () => {
       buttonText: "Explore Stays",
       buttonClassName: "bg-gradient-ocean",
       iconClassName: "text-primary",
+      sectionId: "stays"
     },
     {
       icon: Briefcase,
@@ -76,6 +77,7 @@ const Index = () => {
       buttonText: "Find Work",
       buttonClassName: "bg-gradient-sunset",
       iconClassName: "text-secondary",
+      sectionId: "work"
     },
     {
       icon: Plane,
@@ -84,6 +86,7 @@ const Index = () => {
       buttonText: "Plan Travel",
       buttonClassName: "bg-gradient-sky",
       iconClassName: "text-accent",
+      sectionId: "travel"
     },
   ];
 
@@ -115,7 +118,7 @@ const Index = () => {
       </section>
 
       {/* Jobs Section */}
-      <section id="work" className="py-16 px-4 bg-white">
+      <section id="work" className="py-16 px-4 bg-white scroll-mt-16">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Latest Opportunities</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -127,13 +130,23 @@ const Index = () => {
       </section>
 
       {/* Housing Section */}
-      <section id="stays" className="py-16 px-4 bg-gray-50">
+      <section id="stays" className="py-16 px-4 bg-gray-50 scroll-mt-16">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Stays</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {housing.map((house, index) => (
               <HousingCard key={index} {...house} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Travel Section */}
+      <section id="travel" className="py-16 px-4 bg-white scroll-mt-16">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Travel Destinations</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <p className="text-gray-600">Coming soon: Explore amazing destinations around the world!</p>
           </div>
         </div>
       </section>

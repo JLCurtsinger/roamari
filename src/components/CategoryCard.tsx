@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { LucideIcon } from "lucide-react";
+import { scrollToSection } from "@/utils/scrollUtils";
 
 interface CategoryCardProps {
   icon: LucideIcon;
@@ -8,6 +9,7 @@ interface CategoryCardProps {
   buttonText: string;
   buttonClassName: string;
   iconClassName: string;
+  sectionId: string;
 }
 
 export const CategoryCard = ({
@@ -17,7 +19,12 @@ export const CategoryCard = ({
   buttonText,
   buttonClassName,
   iconClassName,
+  sectionId,
 }: CategoryCardProps) => {
+  const handleClick = () => {
+    scrollToSection(sectionId);
+  };
+
   return (
     <div className="bg-white/95 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
       <Icon className={`w-12 h-12 mx-auto mb-4 ${iconClassName}`} />
@@ -26,6 +33,7 @@ export const CategoryCard = ({
       <Button 
         variant="outline" 
         className={`w-full hover:opacity-90 transition-all duration-300 text-white font-medium ${buttonClassName}`}
+        onClick={handleClick}
       >
         <Icon className="mr-2 h-4 w-4" />
         {buttonText}
