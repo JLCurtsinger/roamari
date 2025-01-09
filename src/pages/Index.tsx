@@ -2,8 +2,8 @@ import { Navigation } from "@/components/Navigation";
 import { SearchFilters } from "@/components/SearchFilters";
 import { JobCard } from "@/components/JobCard";
 import { HousingCard } from "@/components/HousingCard";
-import { Button } from "@/components/ui/button";
-import { Briefcase, Home, Plane, Search } from "lucide-react";
+import { Briefcase, Home, Plane } from "lucide-react";
+import { CategoryCard } from "@/components/CategoryCard";
 
 const Index = () => {
   const jobs = [
@@ -60,6 +60,33 @@ const Index = () => {
     },
   ];
 
+  const categories = [
+    {
+      icon: Home,
+      title: "Stays",
+      description: "Find your perfect home away from home",
+      buttonText: "Explore Stays",
+      buttonClassName: "bg-gradient-ocean",
+      iconClassName: "text-primary",
+    },
+    {
+      icon: Briefcase,
+      title: "Work",
+      description: "Discover remote work opportunities",
+      buttonText: "Find Work",
+      buttonClassName: "bg-gradient-sunset",
+      iconClassName: "text-secondary",
+    },
+    {
+      icon: Plane,
+      title: "Travel",
+      description: "Plan your next adventure",
+      buttonText: "Plan Travel",
+      buttonClassName: "bg-gradient-sky",
+      iconClassName: "text-accent",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
@@ -78,44 +105,9 @@ const Index = () => {
           
           {/* Category Cards */}
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
-            <div className="bg-white/95 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-              <Home className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-gray-900">Stays</h3>
-              <p className="text-gray-600 mb-4">Find your perfect home away from home</p>
-              <Button 
-                variant="outline" 
-                className="w-full bg-gradient-ocean hover:opacity-90 transition-all duration-300 text-white font-medium"
-              >
-                <Home className="mr-2 h-4 w-4" />
-                Explore Stays
-              </Button>
-            </div>
-            
-            <div className="bg-white/95 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-              <Briefcase className="w-12 h-12 text-secondary mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-gray-900">Work</h3>
-              <p className="text-gray-600 mb-4">Discover remote work opportunities</p>
-              <Button 
-                variant="outline" 
-                className="w-full bg-gradient-sunset hover:opacity-90 transition-all duration-300 text-white font-medium"
-              >
-                <Briefcase className="mr-2 h-4 w-4" />
-                Find Work
-              </Button>
-            </div>
-            
-            <div className="bg-white/95 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-              <Plane className="w-12 h-12 text-accent mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-gray-900">Travel</h3>
-              <p className="text-gray-600 mb-4">Plan your next adventure</p>
-              <Button 
-                variant="outline" 
-                className="w-full bg-gradient-sky hover:opacity-90 transition-all duration-300 text-white font-medium"
-              >
-                <Plane className="mr-2 h-4 w-4" />
-                Plan Travel
-              </Button>
-            </div>
+            {categories.map((category, index) => (
+              <CategoryCard key={index} {...category} />
+            ))}
           </div>
           
           <SearchFilters />
