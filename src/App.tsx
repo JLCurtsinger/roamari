@@ -4,6 +4,8 @@ import { JobApplication } from "./pages/JobApplication";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import SignIn from "./pages/SignIn";
+import ResetPassword from "./pages/ResetPassword";
+import CreateAccount from "./pages/CreateAccount";
 import { Navigation } from "./components/Navigation";
 import { Footer } from "./components/Footer";
 import { Toaster } from "@/components/ui/toaster";
@@ -19,6 +21,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/create-account" element={<CreateAccount />} />
       </Routes>
       <Footer />
       <Toaster />
