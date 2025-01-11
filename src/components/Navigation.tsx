@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, Briefcase, Home, Plane } from "lucide-react";
 import { useState } from "react";
-import { scrollToSection } from "@/utils/scrollUtils";
+import { scrollToSection, scrollToTop } from "@/utils/scrollUtils";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,7 +18,11 @@ export const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="text-2xl font-bold bg-gradient-sunset text-transparent bg-clip-text">
+          <Link 
+            to="/" 
+            onClick={scrollToTop}
+            className="text-2xl font-bold bg-gradient-sunset text-transparent bg-clip-text"
+          >
             Roamari
           </Link>
           

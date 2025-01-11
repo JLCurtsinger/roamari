@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
-import { scrollToSection } from "@/utils/scrollUtils";
+import { scrollToSection, scrollToTop } from "@/utils/scrollUtils";
 
 export const Footer = () => {
   const handleSectionClick = (sectionId: string) => {
@@ -72,7 +72,11 @@ export const Footer = () => {
 
           {/* Logo and Copyright */}
           <div>
-            <Link to="/" className="text-2xl font-bold bg-gradient-sunset text-transparent bg-clip-text">
+            <Link 
+              to="/" 
+              onClick={scrollToTop}
+              className="text-2xl font-bold bg-gradient-sunset text-transparent bg-clip-text"
+            >
               Roamari
             </Link>
             <p className="mt-4 text-sm text-gray-400">
