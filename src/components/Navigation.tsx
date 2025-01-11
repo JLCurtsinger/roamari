@@ -1,10 +1,18 @@
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, Briefcase, Home, Plane } from "lucide-react";
 import { useState } from "react";
+import { scrollToSection } from "@/utils/scrollUtils";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const handleSectionClick = (sectionId: string) => {
+    if (location.pathname === "/") {
+      scrollToSection(sectionId);
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b">
@@ -16,21 +24,35 @@ export const Navigation = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            <Link to="#stays" className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors">
+            <Link 
+              to="/" 
+              onClick={() => handleSectionClick('stays')} 
+              className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+            >
               <Home className="w-5 h-5" />
               <span>Stays</span>
             </Link>
-            <Link to="#work" className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors">
+            <Link 
+              to="/" 
+              onClick={() => handleSectionClick('work')} 
+              className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+            >
               <Briefcase className="w-5 h-5" />
               <span>Work</span>
             </Link>
-            <Link to="#travel" className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors">
+            <Link 
+              to="/" 
+              onClick={() => handleSectionClick('travel')} 
+              className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+            >
               <Plane className="w-5 h-5" />
               <span>Travel</span>
             </Link>
-            <Button className="bg-gradient-ocean text-white hover:opacity-90 transition-opacity">
-              Sign In
-            </Button>
+            <Link to="/signin">
+              <Button className="bg-gradient-ocean text-white hover:opacity-90 transition-opacity">
+                Sign In
+              </Button>
+            </Link>
           </div>
           
           {/* Mobile Menu Button */}
@@ -46,21 +68,44 @@ export const Navigation = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t">
             <div className="flex flex-col gap-4">
-              <Link to="#stays" className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:bg-gray-50">
+              <Link 
+                to="/" 
+                onClick={() => {
+                  handleSectionClick('stays');
+                  setIsMenuOpen(false);
+                }} 
+                className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:bg-gray-50"
+              >
                 <Home className="w-5 h-5" />
                 <span>Stays</span>
               </Link>
-              <Link to="#work" className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:bg-gray-50">
+              <Link 
+                to="/" 
+                onClick={() => {
+                  handleSectionClick('work');
+                  setIsMenuOpen(false);
+                }} 
+                className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:bg-gray-50"
+              >
                 <Briefcase className="w-5 h-5" />
                 <span>Work</span>
               </Link>
-              <Link to="#travel" className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:bg-gray-50">
+              <Link 
+                to="/" 
+                onClick={() => {
+                  handleSectionClick('travel');
+                  setIsMenuOpen(false);
+                }} 
+                className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:bg-gray-50"
+              >
                 <Plane className="w-5 h-5" />
                 <span>Travel</span>
               </Link>
-              <Button className="mx-4 bg-gradient-ocean text-white hover:opacity-90">
-                Sign In
-              </Button>
+              <Link to="/signin" onClick={() => setIsMenuOpen(false)}>
+                <Button className="mx-4 bg-gradient-ocean text-white hover:opacity-90">
+                  Sign In
+                </Button>
+              </Link>
             </div>
           </div>
         )}
