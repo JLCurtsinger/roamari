@@ -11,11 +11,23 @@ export const SearchFilters = () => {
   const [checkIn, setCheckIn] = useState<Date>();
   const [checkOut, setCheckOut] = useState<Date>();
   const [guests, setGuests] = useState(1);
+  const [isCheckInOpen, setIsCheckInOpen] = useState(false);
+  const [isCheckOutOpen, setIsCheckOutOpen] = useState(false);
 
   const handleGuestChange = (value: number) => {
     if (value >= 1 && value <= 10) {
       setGuests(value);
     }
+  };
+
+  const handleCheckInSelect = (date: Date | undefined) => {
+    setCheckIn(date);
+    setIsCheckInOpen(false);
+  };
+
+  const handleCheckOutSelect = (date: Date | undefined) => {
+    setCheckOut(date);
+    setIsCheckOutOpen(false);
   };
 
   return (
@@ -39,7 +51,7 @@ export const SearchFilters = () => {
         <div className="hidden md:block w-px h-14 bg-gray-200 mx-2"></div>
 
         {/* Check-in Section */}
-        <Popover>
+        <Popover open={isCheckInOpen} onOpenChange={setIsCheckInOpen}>
           <PopoverTrigger asChild>
             <div className="relative group">
               <div className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors">
@@ -50,12 +62,13 @@ export const SearchFilters = () => {
               </div>
             </div>
           </PopoverTrigger>
-          <PopoverContent className="w-auto p-0" align="start">
+          <PopoverContent className="w-auto p-0 bg-white" align="start">
             <CalendarComponent
               mode="single"
               selected={checkIn}
-              onSelect={setCheckIn}
+              onSelect={handleCheckInSelect}
               initialFocus
+              className="bg-white"
             />
           </PopoverContent>
         </Popover>
@@ -64,7 +77,7 @@ export const SearchFilters = () => {
         <div className="hidden md:block w-px h-14 bg-gray-200 mx-2"></div>
 
         {/* Check-out Section */}
-        <Popover>
+        <Popover open={isCheckOutOpen} onOpenChange={setIsCheckOutOpen}>
           <PopoverTrigger asChild>
             <div className="relative group">
               <div className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors">
@@ -75,12 +88,13 @@ export const SearchFilters = () => {
               </div>
             </div>
           </PopoverTrigger>
-          <PopoverContent className="w-auto p-0" align="start">
+          <PopoverContent className="w-auto p-0 bg-white" align="start">
             <CalendarComponent
               mode="single"
               selected={checkOut}
-              onSelect={setCheckOut}
+              onSelect={handleCheckOutSelect}
               initialFocus
+              className="bg-white"
             />
           </PopoverContent>
         </Popover>
@@ -96,7 +110,7 @@ export const SearchFilters = () => {
               <Button
                 variant="outline"
                 size="icon"
-                className="h-6 w-6"
+                className="h-6 w-6 border border-gray-300"
                 onClick={() => handleGuestChange(guests - 1)}
               >
                 <Minus className="h-4 w-4" />
@@ -112,7 +126,7 @@ export const SearchFilters = () => {
               <Button
                 variant="outline"
                 size="icon"
-                className="h-6 w-6"
+                className="h-6 w-6 border border-gray-300"
                 onClick={() => handleGuestChange(guests + 1)}
               >
                 <Plus className="h-4 w-4" />

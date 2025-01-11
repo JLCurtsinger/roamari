@@ -7,13 +7,17 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { MapPin, Clock, DollarSign, Calendar } from "lucide-react";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
   phone: z.string().min(10, "Phone number must be at least 10 digits"),
-  experience: z.string().min(50, "Please provide more details about your experience"),
-  portfolio: z.string().url("Please enter a valid URL").optional(),
+  arrivalTime: z.string().min(1, "Please select an arrival time"),
+  scheduleConflicts: z.string().optional(),
+  counterOfferAmount: z.string().optional(),
+  counterOfferNotes: z.string().optional(),
 });
 
 export const JobApplication = () => {
@@ -28,8 +32,10 @@ export const JobApplication = () => {
       fullName: "",
       email: "",
       phone: "",
-      experience: "",
-      portfolio: "",
+      arrivalTime: "",
+      scheduleConflicts: "",
+      counterOfferAmount: "",
+      counterOfferNotes: "",
     },
   });
 
@@ -45,91 +51,168 @@ export const JobApplication = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-32">
       <div className="container mx-auto px-4">
-        <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Apply for {jobTitle}</h1>
-          <p className="text-gray-600 mb-8">at {company}</p>
+        <div className="max-w-4xl mx-auto">
+          {/* Job Details Card */}
+          <Card className="mb-8">
+            <CardHeader>
+              <CardTitle className="text-3xl font-bold text-gray-900">{jobTitle}</CardTitle>
+              <p className="text-lg text-gray-600">{company}</p>
+            </CardHeader>
+            <CardContent className="grid gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex items-center gap-2 text-gray-700">
+                  <MapPin className="h-5 w-5 text-primary" />
+                  <span>San Francisco, CA</span>
+                </div>
+                <div className="flex items-center gap-2 text-gray-700">
+                  <Clock className="h-5 w-5 text-primary" />
+                  <span>4 hours</span>
+                </div>
+                <div className="flex items-center gap-2 text-gray-700">
+                  <DollarSign className="h-5 w-5 text-primary" />
+                  <span>$25/hour</span>
+                </div>
+                <div className="flex items-center gap-2 text-gray-700">
+                  <Calendar className="h-5 w-5 text-primary" />
+                  <span>May 1, 2024</span>
+                </div>
+              </div>
 
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="fullName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Full Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="John Doe" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <div>
+                <h3 className="text-lg font-semibold mb-2">Job Expectations</h3>
+                <p className="text-gray-600">
+                  This role requires attention to detail, excellent communication skills, and the ability to work independently.
+                  You'll be responsible for [specific tasks] and should have experience with [relevant skills].
+                </p>
+              </div>
+            </CardContent>
+          </Card>
 
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input type="email" placeholder="john@example.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+          {/* Application Form */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Apply for this Position</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <FormField
+                    control={form.control}
+                    name="fullName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Full Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="John Doe" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-              <FormField
-                control={form.control}
-                name="phone"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Phone Number</FormLabel>
-                    <FormControl>
-                      <Input type="tel" placeholder="+1 (555) 000-0000" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input type="email" placeholder="john@example.com" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-              <FormField
-                control={form.control}
-                name="experience"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Relevant Experience</FormLabel>
-                    <FormControl>
-                      <Textarea 
-                        placeholder="Tell us about your relevant experience..."
-                        className="min-h-[150px]"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Phone Number</FormLabel>
+                        <FormControl>
+                          <Input type="tel" placeholder="+1 (555) 000-0000" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-              <FormField
-                control={form.control}
-                name="portfolio"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Portfolio URL (Optional)</FormLabel>
-                    <FormControl>
-                      <Input type="url" placeholder="https://your-portfolio.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                  <FormField
+                    control={form.control}
+                    name="arrivalTime"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Expected Arrival Time</FormLabel>
+                        <FormControl>
+                          <Input type="time" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-              <Button type="submit" className="w-full bg-gradient-sunset text-white hover:opacity-90">
-                Submit Application
-              </Button>
-            </form>
-          </Form>
+                  <FormField
+                    control={form.control}
+                    name="scheduleConflicts"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Schedule Conflicts (Optional)</FormLabel>
+                        <FormControl>
+                          <Textarea 
+                            placeholder="List any schedule conflicts or time constraints..."
+                            className="min-h-[100px]"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <div className="space-y-4 border-t pt-4">
+                    <h3 className="text-lg font-semibold">Counter Offer (Optional)</h3>
+                    
+                    <FormField
+                      control={form.control}
+                      name="counterOfferAmount"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Proposed Rate</FormLabel>
+                          <FormControl>
+                            <Input type="text" placeholder="e.g., $30/hour" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="counterOfferNotes"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Counter Offer Notes</FormLabel>
+                          <FormControl>
+                            <Textarea 
+                              placeholder="Explain your counter offer..."
+                              className="min-h-[100px]"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  <Button type="submit" className="w-full bg-gradient-sunset text-white hover:opacity-90">
+                    Submit Application
+                  </Button>
+                </form>
+              </Form>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>

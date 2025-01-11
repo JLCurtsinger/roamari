@@ -18,9 +18,6 @@ export const Footer = () => {
             <h3 className="text-xl font-semibold mb-4 bg-gradient-sunset text-transparent bg-clip-text">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="hover:text-primary transition-colors">Home</Link>
-              </li>
-              <li>
                 <Link to="/" onClick={() => handleSectionClick('stays')} className="hover:text-primary transition-colors">
                   Stays
                 </Link>
