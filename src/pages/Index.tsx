@@ -35,6 +35,7 @@ const Index = () => {
 
   const housing = [
     {
+      id: "stay-1",
       image: "/placeholder.svg",
       title: "Modern Studio in Downtown",
       location: "Barcelona, Spain",
@@ -43,6 +44,7 @@ const Index = () => {
       type: "Studio Apartment",
     },
     {
+      id: "stay-2",
       image: "/placeholder.svg",
       title: "Beachfront Condo",
       location: "Bali, Indonesia",
@@ -51,6 +53,7 @@ const Index = () => {
       type: "1 Bedroom Condo",
     },
     {
+      id: "stay-3",
       image: "/placeholder.svg",
       title: "Cozy Mountain Cabin",
       location: "Colorado, USA",
