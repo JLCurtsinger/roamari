@@ -27,11 +27,11 @@ export interface Destination {
   introduction: string;
   attractions: string[];
   travelOptions: TravelOption[];
-  recommendedStays: string[]; // IDs of recommended stays
+  recommendedStays: string[];
 }
 
 export interface TravelOption {
-  type: 'flight' | 'bus' | 'train';
+  type: 'flight' | 'train' | 'bus';
   description: string;
   price: string;
 }
