@@ -2,8 +2,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Wifi, MapPin, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface HousingCardProps {
+  id: string;
   image: string;
   title: string;
   location: string;
@@ -12,7 +14,9 @@ interface HousingCardProps {
   type: string;
 }
 
-export const HousingCard = ({ image, title, location, price, wifiSpeed, type }: HousingCardProps) => {
+export const HousingCard = ({ id, image, title, location, price, wifiSpeed, type }: HousingCardProps) => {
+  const navigate = useNavigate();
+
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow">
       <div className="relative">
@@ -51,7 +55,10 @@ export const HousingCard = ({ image, title, location, price, wifiSpeed, type }: 
             <div className="text-lg font-semibold">
               {price}<span className="text-sm text-muted-foreground">/month</span>
             </div>
-            <Button className="bg-gradient-sunset text-white hover:opacity-90">
+            <Button 
+              className="bg-gradient-sunset text-white hover:opacity-90"
+              onClick={() => navigate(`/stay-details/${id}`)}
+            >
               View Details
             </Button>
           </div>

@@ -6,6 +6,8 @@ import Contact from "./pages/Contact";
 import SignIn from "./pages/SignIn";
 import ResetPassword from "./pages/ResetPassword";
 import CreateAccount from "./pages/CreateAccount";
+import { StayDetails } from "./pages/StayDetails";
+import { DestinationDetails } from "./pages/DestinationDetails";
 import { Navigation } from "./components/Navigation";
 import { Footer } from "./components/Footer";
 import { Toaster } from "@/components/ui/toaster";
@@ -23,6 +25,8 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/create-account" element={<CreateAccount />} />
+        <Route path="/stay-details/:id" element={<StayDetails />} />
+        <Route path="/destination-details/:id" element={<DestinationDetails />} />
       </Routes>
       <Footer />
       <Toaster />
