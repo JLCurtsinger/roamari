@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Wifi, MapPin, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { scrollToTop } from "@/utils/scrollUtils";
 
 interface HousingCardProps {
   id: string;
@@ -16,6 +17,11 @@ interface HousingCardProps {
 
 export const HousingCard = ({ id, image, title, location, price, wifiSpeed, type }: HousingCardProps) => {
   const navigate = useNavigate();
+
+  const handleViewDetails = () => {
+    navigate(`/stay-details/${id}`);
+    scrollToTop();
+  };
 
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow">
@@ -57,7 +63,7 @@ export const HousingCard = ({ id, image, title, location, price, wifiSpeed, type
             </div>
             <Button 
               className="bg-gradient-sunset text-white hover:opacity-90"
-              onClick={() => navigate(`/stay-details/${id}`)}
+              onClick={handleViewDetails}
             >
               View Details
             </Button>

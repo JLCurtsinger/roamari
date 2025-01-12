@@ -2,9 +2,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { destinations } from "@/data/mockData";
+import { scrollToTop } from "@/utils/scrollUtils";
 
 export const TravelDestinations = () => {
   const navigate = useNavigate();
+
+  const handleLearnMore = (id: string) => {
+    navigate(`/destination-details/${id}`);
+    scrollToTop();
+  };
 
   return (
     <section id="travel" className="py-20">
@@ -29,7 +35,7 @@ export const TravelDestinations = () => {
               <CardContent>
                 <Button 
                   className="w-full bg-gradient-sunset text-white hover:opacity-90"
-                  onClick={() => navigate(`/destination-details/${destination.id}`)}
+                  onClick={() => handleLearnMore(destination.id)}
                 >
                   Learn More
                 </Button>

@@ -2,8 +2,10 @@ import { Navigation } from "@/components/Navigation";
 import { SearchFilters } from "@/components/SearchFilters";
 import { JobCard } from "@/components/JobCard";
 import { HousingCard } from "@/components/HousingCard";
+import { TravelDestinations } from "@/components/TravelDestinations";
 import { Briefcase, Home, Plane } from "lucide-react";
 import { CategoryCard } from "@/components/CategoryCard";
+import { stays } from "@/data/mockData";
 
 const Index = () => {
   const jobs = [
@@ -30,36 +32,6 @@ const Index = () => {
       salary: "$70/hour",
       type: "Contract",
       duration: "3 months",
-    },
-  ];
-
-  const housing = [
-    {
-      id: "stay-1",
-      image: "/placeholder.svg",
-      title: "Modern Studio in Downtown",
-      location: "Barcelona, Spain",
-      price: "$1,800",
-      wifiSpeed: "300",
-      type: "Studio Apartment",
-    },
-    {
-      id: "stay-2",
-      image: "/placeholder.svg",
-      title: "Beachfront Condo",
-      location: "Bali, Indonesia",
-      price: "$1,200",
-      wifiSpeed: "200",
-      type: "1 Bedroom Condo",
-    },
-    {
-      id: "stay-3",
-      image: "/placeholder.svg",
-      title: "Cozy Mountain Cabin",
-      location: "Colorado, USA",
-      price: "$2,400",
-      wifiSpeed: "150",
-      type: "Cabin",
     },
   ];
 
@@ -137,22 +109,15 @@ const Index = () => {
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Stays</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {housing.map((house, index) => (
-              <HousingCard key={index} {...house} />
+            {stays.map((house) => (
+              <HousingCard key={house.id} {...house} />
             ))}
           </div>
         </div>
       </section>
 
       {/* Travel Section */}
-      <section id="travel" className="py-16 px-4 bg-white scroll-mt-16">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Travel Destinations</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <p className="text-gray-600">Coming soon: Explore amazing destinations around the world!</p>
-          </div>
-        </div>
-      </section>
+      <TravelDestinations />
     </div>
   );
 };

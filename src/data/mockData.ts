@@ -68,7 +68,7 @@ export const destinations: Destination[] = [
     id: "dest-1",
     name: "Paris, France",
     description: "Discover the charm of the Eiffel Tower and indulge in world-class cuisine",
-    image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1431576901776-e539bd916ba2",
     introduction: "Paris, the City of Light, offers an unparalleled blend of culture, history, and modern living.",
     attractions: [
       "Eiffel Tower",
@@ -89,5 +89,52 @@ export const destinations: Destination[] = [
       }
     ],
     recommendedStays: ["stay-1"]
+  },
+  {
+    id: "dest-2",
+    name: "Tokyo, Japan",
+    description: "Experience the perfect blend of tradition and innovation in Japan's capital",
+    image: "https://images.unsplash.com/photo-1497604401993-f2e922e5cb0a",
+    introduction: "Tokyo, a city where ancient traditions and cutting-edge technology exist in perfect harmony.",
+    attractions: [
+      "Shibuya Crossing",
+      "Senso-ji Temple",
+      "Tokyo Skytree",
+      "Tsukiji Fish Market"
+    ],
+    travelOptions: [
+      {
+        type: "flight",
+        description: "Direct flights from major Asian and Western cities",
+        price: "From $800"
+      }
+    ],
+    recommendedStays: ["stay-2"]
+  },
+  {
+    id: "dest-3",
+    name: "New York City, USA",
+    description: "Explore the city that never sleeps, from Central Park to Times Square",
+    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625",
+    introduction: "New York City, the cultural capital of America, where every neighborhood tells a unique story.",
+    attractions: [
+      "Central Park",
+      "Times Square",
+      "Empire State Building",
+      "Broadway Shows"
+    ],
+    travelOptions: [
+      {
+        type: "flight",
+        description: "Frequent flights from all major cities",
+        price: "From $300"
+      },
+      {
+        type: "train",
+        description: "Amtrak connections from nearby cities",
+        price: "From $50"
+      }
+    ],
+    recommendedStays: ["stay-3"]
   }
 ];
