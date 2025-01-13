@@ -3,6 +3,7 @@ import { SearchFilters } from "@/components/SearchFilters";
 import { JobCard } from "@/components/JobCard";
 import { HousingCard } from "@/components/HousingCard";
 import { TravelDestinations } from "@/components/TravelDestinations";
+import { TransportationSection } from "@/components/TransportationSection";
 import { Briefcase, Home, Plane } from "lucide-react";
 import { CategoryCard } from "@/components/CategoryCard";
 import { stays } from "@/data/mockData";
@@ -118,6 +119,9 @@ const Index = () => {
 
       {/* Travel Section */}
       <TravelDestinations />
+
+      {/* Transportation Section */}
+      <TransportationSection />
     </div>
   );
 };

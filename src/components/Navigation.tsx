@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, Briefcase, Home, Plane } from "lucide-react";
+import { Menu, Briefcase, Home, Plane, Car } from "lucide-react";
 import { useState } from "react";
 import { scrollToSection, scrollToTop } from "@/utils/scrollUtils";
 
@@ -51,6 +51,14 @@ export const Navigation = () => {
             >
               <Plane className="w-5 h-5" />
               <span>Travel</span>
+            </Link>
+            <Link 
+              to="/" 
+              onClick={() => handleSectionClick('transportation')} 
+              className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              <Car className="w-5 h-5" />
+              <span>Transportation</span>
             </Link>
             <Link to="/signin">
               <Button className="bg-gradient-ocean text-white hover:opacity-90 transition-opacity">
@@ -104,6 +112,17 @@ export const Navigation = () => {
               >
                 <Plane className="w-5 h-5" />
                 <span>Travel</span>
+              </Link>
+              <Link 
+                to="/" 
+                onClick={() => {
+                  handleSectionClick('transportation');
+                  setIsMenuOpen(false);
+                }} 
+                className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:bg-gray-50"
+              >
+                <Car className="w-5 h-5" />
+                <span>Transportation</span>
               </Link>
               <Link to="/signin" onClick={() => setIsMenuOpen(false)}>
                 <Button className="mx-4 bg-gradient-ocean text-white hover:opacity-90">
