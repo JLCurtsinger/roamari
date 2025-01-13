@@ -71,8 +71,16 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 bg-gradient-hero min-h-[600px] flex items-center">
-        <div className="container mx-auto text-center text-white">
+      <section 
+        className="relative pt-32 pb-20 px-4 min-h-[600px] flex items-center bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/lovable-uploads/69a571f2-baa6-44c5-9cdb-e82542a1386c.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/40" /> {/* Overlay to ensure text readability */}
+        <div className="container mx-auto text-center text-white relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             Explore, Work, Live
             <br />
