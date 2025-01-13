@@ -60,6 +60,72 @@ export const stays: Stay[] = [
         date: "2024-02-01"
       }
     ]
+  },
+  {
+    id: "stay-4",
+    title: "Pine Creek Wilderness Campground",
+    location: "Sedona, Arizona",
+    price: "$25",
+    type: "Campground",
+    image: "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843",
+    description: "Experience the beauty of Sedona's wilderness at this serene campground surrounded by towering pine trees and stunning red rock formations.",
+    amenities: ["Fire Pits", "Water Access", "Picnic Tables", "Hiking Trails"],
+    reviews: [
+      {
+        id: "review-4",
+        author: "Sarah Wilson",
+        rating: 5,
+        comment: "Perfect spot for camping under the stars!",
+        date: "2024-02-20"
+      }
+    ],
+    availability: "Available year-round",
+    isCamping: true,
+    campingType: "Paid"
+  },
+  {
+    id: "stay-5",
+    title: "Red Rock Dispersed Camping",
+    location: "Sedona, Arizona",
+    price: "Free",
+    type: "Free Camping",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+    description: "Discover the ultimate freedom of dispersed camping in Sedona's breathtaking wilderness. No amenities - bring your own supplies.",
+    amenities: ["No amenities - Pack in, Pack out", "Primitive camping", "Amazing views"],
+    reviews: [
+      {
+        id: "review-5",
+        author: "Mike Adventure",
+        rating: 4,
+        comment: "True wilderness experience with incredible views!",
+        date: "2024-02-18"
+      }
+    ],
+    availability: "Open year-round",
+    isCamping: true,
+    campingType: "Free"
+  },
+  {
+    id: "stay-6",
+    title: "Mountain Vista Campground",
+    location: "Colorado Springs, Colorado",
+    price: "$30",
+    type: "Campground",
+    image: "https://images.unsplash.com/photo-1615729947596-a598e5de0ab3",
+    description: "Premium camping experience with stunning mountain views and modern amenities. Perfect for both tent and RV camping.",
+    amenities: ["Showers", "Electricity", "Fire Pits", "WiFi at Lodge"],
+    reviews: [
+      {
+        id: "review-6",
+        author: "Chris Outdoors",
+        rating: 5,
+        comment: "Best campground in Colorado Springs!",
+        date: "2024-02-15"
+      }
+    ],
+    availability: "March through November",
+    isCamping: true,
+    campingType: "Paid"
   }
 ];
 

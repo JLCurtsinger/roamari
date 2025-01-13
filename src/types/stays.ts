@@ -3,12 +3,15 @@ export interface Stay {
   title: string;
   location: string;
   price: string;
-  wifiSpeed: string;
+  wifiSpeed?: string;
   type: string;
   image: string;
   description: string;
   amenities: string[];
   reviews: Review[];
+  availability?: string;
+  isCamping?: boolean;
+  campingType?: 'Paid' | 'Free';
 }
 
 export interface Review {

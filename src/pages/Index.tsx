@@ -7,8 +7,24 @@ import { TransportationSection } from "@/components/TransportationSection";
 import { Briefcase, Home, Plane } from "lucide-react";
 import { CategoryCard } from "@/components/CategoryCard";
 import { stays } from "@/data/mockData";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Stay } from "@/types/stays";
 
 const Index = () => {
+  const [selectedStayType, setSelectedStayType] = useState<string>("All");
+  
+  const filterStays = (stays: Stay[]) => {
+    if (selectedStayType === "All") return stays;
+    if (selectedStayType === "Camping") {
+      return stays.filter(stay => stay.isCamping);
+    }
+    if (selectedStayType === "Regular") {
+      return stays.filter(stay => !stay.isCamping);
+    }
+    return stays.filter(stay => stay.type === selectedStayType);
+  };
+
   const jobs = [
     {
       title: "Senior Frontend Developer",
@@ -117,8 +133,23 @@ const Index = () => {
       <section id="stays" className="py-16 px-4 bg-gray-50 scroll-mt-16">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Stays</h2>
+          
+          {/* Stay Type Filters */}
+          <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
+            {["All", "Regular", "Camping", "Campground", "Free Camping"].map((type) => (
+              <Button
+                key={type}
+                variant={selectedStayType === type ? "default" : "outline"}
+                onClick={() => setSelectedStayType(type)}
+                className="whitespace-nowrap"
+              >
+                {type}
+              </Button>
+            ))}
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {stays.map((house) => (
+            {filterStays(stays).map((house) => (
               <HousingCard key={house.id} {...house} />
             ))}
           </div>

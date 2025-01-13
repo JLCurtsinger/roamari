@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Wifi, MapPin, Star } from "lucide-react";
+import { Wifi, MapPin, Star, Tent } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { scrollToTop } from "@/utils/scrollUtils";
 
@@ -11,11 +11,25 @@ interface HousingCardProps {
   title: string;
   location: string;
   price: string;
-  wifiSpeed: string;
+  wifiSpeed?: string;
   type: string;
+  isCamping?: boolean;
+  campingType?: 'Paid' | 'Free';
+  availability?: string;
 }
 
-export const HousingCard = ({ id, image, title, location, price, wifiSpeed, type }: HousingCardProps) => {
+export const HousingCard = ({ 
+  id, 
+  image, 
+  title, 
+  location, 
+  price, 
+  wifiSpeed, 
+  type,
+  isCamping,
+  campingType,
+  availability 
+}: HousingCardProps) => {
   const navigate = useNavigate();
 
   const handleViewDetails = () => {
@@ -35,8 +49,8 @@ export const HousingCard = ({ id, image, title, location, price, wifiSpeed, type
           className="absolute top-4 left-4 bg-gradient-sunset text-white"
           variant="secondary"
         >
-          <Star className="w-4 h-4 mr-1" />
-          Popular Choice
+          {isCamping ? <Tent className="w-4 h-4 mr-1" /> : <Star className="w-4 h-4 mr-1" />}
+          {campingType || "Popular Choice"}
         </Badge>
       </div>
       <CardHeader>
@@ -52,14 +66,21 @@ export const HousingCard = ({ id, image, title, location, price, wifiSpeed, type
             <Badge variant="secondary" className="bg-gradient-travel text-gray-700">
               {type}
             </Badge>
-            <Badge variant="outline" className="flex items-center gap-1">
-              <Wifi className="w-4 h-4" />
-              {wifiSpeed}Mbps
-            </Badge>
+            {wifiSpeed && (
+              <Badge variant="outline" className="flex items-center gap-1">
+                <Wifi className="w-4 h-4" />
+                {wifiSpeed}Mbps
+              </Badge>
+            )}
+            {availability && (
+              <Badge variant="outline">
+                {availability}
+              </Badge>
+            )}
           </div>
           <div className="flex items-center justify-between">
             <div className="text-lg font-semibold">
-              {price}<span className="text-sm text-muted-foreground">/month</span>
+              {price}<span className="text-sm text-muted-foreground">{price === "Free" ? "" : "/night"}</span>
             </div>
             <Button 
               className="bg-gradient-sunset text-white hover:opacity-90"
