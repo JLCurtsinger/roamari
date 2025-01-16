@@ -40,7 +40,7 @@ export const Footer = () => {
             <h3 className="text-xl font-semibold mb-4 bg-gradient-ocean text-transparent bg-clip-text">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="hover:text-primary transition-colors">About Us</Link>
+                <Link to="/about" onClick={scrollToTop} className="hover:text-primary transition-colors">About Us</Link>
               </li>
               <li>
                 <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
