@@ -60,6 +60,14 @@ export const Navigation = () => {
               <Car className="w-5 h-5" />
               <span>Transportation</span>
             </Link>
+            <a 
+              href="https://talklikealocal.org/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-sm font-semibold bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text hover:opacity-80 transition-opacity"
+            >
+              TalkLikeALocal
+            </a>
             <Link to="/signin">
               <Button className="bg-gradient-ocean text-white hover:opacity-90 transition-opacity">
                 Sign In
@@ -124,6 +132,14 @@ export const Navigation = () => {
                 <Car className="w-5 h-5" />
                 <span>Transportation</span>
               </Link>
+              <a 
+                href="https://talklikealocal.org/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text hover:opacity-80 transition-opacity"
+              >
+                TalkLikeALocal
+              </a>
               <Link to="/signin" onClick={() => setIsMenuOpen(false)}>
                 <Button className="mx-4 bg-gradient-ocean text-white hover:opacity-90">
                   Sign In
