@@ -86,81 +86,90 @@ const Index = () => {
     <div className="min-h-screen bg-gray-50">
       <Navigation />
       
-      {/* Hero Section */}
-      <section 
-        className="relative pt-32 pb-20 px-4 min-h-[600px] flex items-center bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/lovable-uploads/69a571f2-baa6-44c5-9cdb-e82542a1386c.png')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <div className="absolute inset-0 bg-black/40" /> {/* Overlay to ensure text readability */}
-        <div className="container mx-auto text-center text-white relative z-10">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Explore, Work, Live
-            <br />
-            <span className="bg-gradient-sunset text-transparent bg-clip-text">Anywhere</span>
-          </h1>
-          <p className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto">
-            Your journey to a location-independent lifestyle starts here.
-          </p>
-          
-          {/* Category Cards */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
-            {categories.map((category, index) => (
-              <CategoryCard key={index} {...category} />
-            ))}
+      <main id="main-content">
+        {/* Hero Section */}
+        <section 
+          className="relative pt-32 pb-20 px-4 min-h-[600px] flex items-center bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/lovable-uploads/69a571f2-baa6-44c5-9cdb-e82542a1386c.png')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+          aria-label="Welcome to Roamari"
+        >
+          <div className="absolute inset-0 bg-black/40" role="presentation" /> 
+          <div className="container mx-auto text-center text-white relative z-10">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              Explore, Work, Live
+              <br />
+              <span className="bg-gradient-sunset text-transparent bg-clip-text">Anywhere</span>
+            </h1>
+            <p className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto">
+              Your journey to a location-independent lifestyle starts here.
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+              {categories.map((category, index) => (
+                <CategoryCard key={index} {...category} />
+              ))}
+            </div>
+            
+            <SearchFilters />
           </div>
-          
-          <SearchFilters />
-        </div>
-      </section>
+        </section>
 
-      {/* Jobs Section */}
-      <section id="work" className="py-16 px-4 bg-white scroll-mt-16">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Latest Opportunities</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {jobs.map((job, index) => (
-              <JobCard key={index} {...job} />
-            ))}
+        {/* Jobs Section */}
+        <section id="work" className="py-16 px-4 bg-white scroll-mt-16" aria-labelledby="work-section">
+          <div className="container mx-auto">
+            <h2 id="work-section" className="text-3xl font-bold text-gray-900 mb-8">Latest Opportunities</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {jobs.map((job, index) => (
+                <JobCard key={index} {...job} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Housing Section */}
-      <section id="stays" className="py-16 px-4 bg-gray-50 scroll-mt-16">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Stays</h2>
-          
-          {/* Stay Type Filters */}
-          <div className="flex gap-2 mb-6 overflow-x-auto pb-2">
-            {["All", "Regular", "Camping", "Campground", "Free Camping"].map((type) => (
-              <Button
-                key={type}
-                variant={selectedStayType === type ? "default" : "outline"}
-                onClick={() => setSelectedStayType(type)}
-                className="whitespace-nowrap"
-              >
-                {type}
-              </Button>
-            ))}
+        {/* Housing Section */}
+        <section id="stays" className="py-16 px-4 bg-gray-50 scroll-mt-16" aria-labelledby="stays-section">
+          <div className="container mx-auto">
+            <h2 id="stays-section" className="text-3xl font-bold text-gray-900 mb-8">Featured Stays</h2>
+            
+            <div className="flex gap-2 mb-6 overflow-x-auto pb-2" role="tablist" aria-label="Filter stays by type">
+              {["All", "Regular", "Camping", "Campground", "Free Camping"].map((type) => (
+                <Button
+                  key={type}
+                  variant={selectedStayType === type ? "default" : "outline"}
+                  onClick={() => setSelectedStayType(type)}
+                  className="whitespace-nowrap"
+                  role="tab"
+                  aria-selected={selectedStayType === type}
+                  aria-controls="stays-grid"
+                >
+                  {type}
+                </Button>
+              ))}
+            </div>
+
+            <div 
+              id="stays-grid" 
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" 
+              role="tabpanel"
+              aria-label="Stays listing"
+            >
+              {filterStays(stays).map((house) => (
+                <HousingCard key={house.id} {...house} />
+              ))}
+            </div>
           </div>
+        </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filterStays(stays).map((house) => (
-              <HousingCard key={house.id} {...house} />
-            ))}
-          </div>
-        </div>
-      </section>
+        {/* Travel Section */}
+        <TravelDestinations />
 
-      {/* Travel Section */}
-      <TravelDestinations />
-
-      {/* Transportation Section */}
-      <TransportationSection />
+        {/* Transportation Section */}
+        <TransportationSection />
+      </main>
     </div>
   );
 };

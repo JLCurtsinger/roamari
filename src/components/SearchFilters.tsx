@@ -31,7 +31,11 @@ export const SearchFilters = () => {
   };
 
   return (
-    <div className="bg-white/95 p-2 rounded-full shadow-lg max-w-6xl mx-auto backdrop-blur-md">
+    <div 
+      className="bg-white/95 p-2 rounded-full shadow-lg max-w-6xl mx-auto backdrop-blur-md"
+      role="search"
+      aria-label="Search destinations"
+    >
       <div className="flex flex-col md:flex-row items-center gap-2 md:gap-0">
         {/* Where Section */}
         <div className="flex-grow relative group min-w-[200px] md:min-w-[250px]">
@@ -43,18 +47,23 @@ export const SearchFilters = () => {
               onChange={(e) => setDestination(e.target.value)}
               placeholder="Search destinations"
               className="border-0 p-0 h-auto text-base text-gray-900 placeholder:text-gray-500 focus-visible:ring-0 bg-transparent"
+              aria-label="Enter destination"
             />
           </div>
         </div>
 
         {/* Vertical Separator */}
-        <div className="hidden md:block w-px h-14 bg-gray-200 mx-2"></div>
+        <div className="hidden md:block w-px h-14 bg-gray-200 mx-2" role="separator" />
 
         {/* Check-in Section */}
         <Popover open={isCheckInOpen} onOpenChange={setIsCheckInOpen}>
           <PopoverTrigger asChild>
             <div className="relative group">
-              <div className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors">
+              <div 
+                className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors"
+                role="button"
+                aria-label="Select check-in date"
+              >
                 <div className="text-sm font-medium text-gray-800">Check in</div>
                 <div className="text-base text-gray-900">
                   {checkIn ? format(checkIn, "MMM dd, yyyy") : "Add dates"}
@@ -74,13 +83,17 @@ export const SearchFilters = () => {
         </Popover>
 
         {/* Vertical Separator */}
-        <div className="hidden md:block w-px h-14 bg-gray-200 mx-2"></div>
+        <div className="hidden md:block w-px h-14 bg-gray-200 mx-2" role="separator" />
 
         {/* Check-out Section */}
         <Popover open={isCheckOutOpen} onOpenChange={setIsCheckOutOpen}>
           <PopoverTrigger asChild>
             <div className="relative group">
-              <div className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors">
+              <div 
+                className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors"
+                role="button"
+                aria-label="Select check-out date"
+              >
                 <div className="text-sm font-medium text-gray-800">Check out</div>
                 <div className="text-base text-gray-900">
                   {checkOut ? format(checkOut, "MMM dd, yyyy") : "Add dates"}
@@ -100,11 +113,15 @@ export const SearchFilters = () => {
         </Popover>
 
         {/* Vertical Separator */}
-        <div className="hidden md:block w-px h-14 bg-gray-200 mx-2"></div>
+        <div className="hidden md:block w-px h-14 bg-gray-200 mx-2" role="separator" />
 
         {/* Guests Section */}
         <div className="relative group">
-          <div className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors">
+          <div 
+            className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors"
+            role="group"
+            aria-label="Select number of guests"
+          >
             <div className="text-sm font-medium text-gray-800">Guests</div>
             <div className="flex items-center gap-4">
               <Button
@@ -112,6 +129,7 @@ export const SearchFilters = () => {
                 size="icon"
                 className="h-6 w-6 border border-gray-300"
                 onClick={() => handleGuestChange(guests - 1)}
+                aria-label="Decrease number of guests"
               >
                 <Minus className="h-4 w-4" />
               </Button>
@@ -122,12 +140,14 @@ export const SearchFilters = () => {
                 className="w-16 text-center border-0 p-0 h-auto text-base text-gray-900 focus-visible:ring-0 bg-transparent"
                 min={1}
                 max={10}
+                aria-label="Number of guests"
               />
               <Button
                 variant="outline"
                 size="icon"
                 className="h-6 w-6 border border-gray-300"
                 onClick={() => handleGuestChange(guests + 1)}
+                aria-label="Increase number of guests"
               >
                 <Plus className="h-4 w-4" />
               </Button>
@@ -139,6 +159,7 @@ export const SearchFilters = () => {
         <Button 
           className="ml-2 rounded-full bg-gradient-sunset hover:opacity-90 transition-opacity p-6"
           size="icon"
+          aria-label="Search"
         >
           <Search className="w-5 h-5 text-white" />
         </Button>
