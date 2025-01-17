@@ -49,9 +49,9 @@ export const Footer = () => {
           </div>
 
           {/* Social Media */}
-          <div>
+          <div className="text-center">
             <h3 className="text-xl font-semibold mb-4 bg-gradient-sky text-transparent bg-clip-text">Connect</h3>
-            <div className="flex space-x-4">
+            <div className="flex justify-center space-x-4">
               <a href="#" className="hover:text-primary transition-colors" aria-label="Facebook">
                 <Facebook size={24} />
               </a>
