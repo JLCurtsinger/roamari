@@ -1,10 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Search, Calendar, Users, Plus, Minus } from "lucide-react";
+import { Search } from "lucide-react";
 import { useState } from "react";
-import { Calendar as CalendarComponent } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { format } from "date-fns";
+import { DestinationInput } from "./search/DestinationInput";
+import { DateSelector } from "./search/DateSelector";
+import { GuestCounter } from "./search/GuestCounter";
 
 export const SearchFilters = () => {
   const [destination, setDestination] = useState("");
@@ -37,125 +36,34 @@ export const SearchFilters = () => {
       aria-label="Search destinations"
     >
       <div className="flex flex-col md:flex-row items-center gap-2 md:gap-0">
-        {/* Where Section */}
-        <div className="flex-grow relative group min-w-[200px] md:min-w-[250px]">
-          <div className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors">
-            <div className="text-sm font-medium text-gray-800">Where</div>
-            <Input
-              type="text"
-              value={destination}
-              onChange={(e) => setDestination(e.target.value)}
-              placeholder="Search destinations"
-              className="border-0 p-0 h-auto text-base text-gray-900 placeholder:text-gray-500 focus-visible:ring-0 bg-transparent"
-              aria-label="Enter destination"
-            />
-          </div>
-        </div>
-
-        {/* Vertical Separator */}
+        <DestinationInput destination={destination} setDestination={setDestination} />
+        
         <div className="hidden md:block w-px h-14 bg-gray-200 mx-2" role="separator" />
-
-        {/* Check-in Section */}
-        <Popover open={isCheckInOpen} onOpenChange={setIsCheckInOpen}>
-          <PopoverTrigger asChild>
-            <div className="relative group">
-              <div 
-                className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors"
-                role="button"
-                aria-label="Select check-in date"
-              >
-                <div className="text-sm font-medium text-gray-800">Check in</div>
-                <div className="text-base text-gray-900">
-                  {checkIn ? format(checkIn, "MMM dd, yyyy") : "Add dates"}
-                </div>
-              </div>
-            </div>
-          </PopoverTrigger>
-          <PopoverContent className="w-auto p-0 bg-white" align="start">
-            <CalendarComponent
-              mode="single"
-              selected={checkIn}
-              onSelect={handleCheckInSelect}
-              initialFocus
-              className="bg-white"
-            />
-          </PopoverContent>
-        </Popover>
-
-        {/* Vertical Separator */}
+        
+        <DateSelector
+          label="Check in"
+          date={checkIn}
+          isOpen={isCheckInOpen}
+          setIsOpen={setIsCheckInOpen}
+          onSelect={handleCheckInSelect}
+          ariaLabel="Select check-in date"
+        />
+        
         <div className="hidden md:block w-px h-14 bg-gray-200 mx-2" role="separator" />
-
-        {/* Check-out Section */}
-        <Popover open={isCheckOutOpen} onOpenChange={setIsCheckOutOpen}>
-          <PopoverTrigger asChild>
-            <div className="relative group">
-              <div 
-                className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors"
-                role="button"
-                aria-label="Select check-out date"
-              >
-                <div className="text-sm font-medium text-gray-800">Check out</div>
-                <div className="text-base text-gray-900">
-                  {checkOut ? format(checkOut, "MMM dd, yyyy") : "Add dates"}
-                </div>
-              </div>
-            </div>
-          </PopoverTrigger>
-          <PopoverContent className="w-auto p-0 bg-white" align="start">
-            <CalendarComponent
-              mode="single"
-              selected={checkOut}
-              onSelect={handleCheckOutSelect}
-              initialFocus
-              className="bg-white"
-            />
-          </PopoverContent>
-        </Popover>
-
-        {/* Vertical Separator */}
+        
+        <DateSelector
+          label="Check out"
+          date={checkOut}
+          isOpen={isCheckOutOpen}
+          setIsOpen={setIsCheckOutOpen}
+          onSelect={handleCheckOutSelect}
+          ariaLabel="Select check-out date"
+        />
+        
         <div className="hidden md:block w-px h-14 bg-gray-200 mx-2" role="separator" />
+        
+        <GuestCounter guests={guests} onGuestChange={handleGuestChange} />
 
-        {/* Guests Section */}
-        <div className="relative group">
-          <div 
-            className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors"
-            role="group"
-            aria-label="Select number of guests"
-          >
-            <div className="text-sm font-medium text-gray-800">Guests</div>
-            <div className="flex items-center gap-4">
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-6 w-6 border border-gray-300"
-                onClick={() => handleGuestChange(guests - 1)}
-                aria-label="Decrease number of guests"
-              >
-                <Minus className="h-4 w-4" />
-              </Button>
-              <Input
-                type="number"
-                value={guests}
-                onChange={(e) => handleGuestChange(parseInt(e.target.value))}
-                className="w-16 text-center border-0 p-0 h-auto text-base text-gray-900 focus-visible:ring-0 bg-transparent"
-                min={1}
-                max={10}
-                aria-label="Number of guests"
-              />
-              <Button
-                variant="outline"
-                size="icon"
-                className="h-6 w-6 border border-gray-300"
-                onClick={() => handleGuestChange(guests + 1)}
-                aria-label="Increase number of guests"
-              >
-                <Plus className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        {/* Search Button */}
         <Button 
           className="ml-2 rounded-full bg-gradient-sunset hover:opacity-90 transition-opacity p-6"
           size="icon"
