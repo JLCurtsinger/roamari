@@ -40,7 +40,6 @@ i18n
       transEmptyNodeValue: '',
       transSupportBasicHtmlNodes: true,
       transKeepBasicHtmlNodesFor: ['br', 'strong', 'i', 'p'],
-      useSuspense: true,
     },
   });
 
