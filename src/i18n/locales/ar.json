@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "stays": "الإقامة",
+    "work": "العمل",
+    "travel": "السفر",
+    "transportation": "المواصلات",
+    "signIn": "تسجيل الدخول"
+  },
+  "search": {
+    "destination": "إلى أين تريد الذهاب؟",
+    "checkIn": "تسجيل الوصول",
+    "checkOut": "تسجيل المغادرة",
+    "guests": "الضيوف"
+  },
+  "common": {
+    "viewDetails": "عرض التفاصيل",
+    "applyNow": "قدم الآن",
+    "bookNow": "احجز الآن",
+    "perNight": "/ليلة",
+    "free": "مجاناً"
+  }
+}

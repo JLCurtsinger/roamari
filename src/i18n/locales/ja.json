@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "stays": "宿泊",
+    "work": "仕事",
+    "travel": "旅行",
+    "transportation": "交通",
+    "signIn": "ログイン"
+  },
+  "search": {
+    "destination": "行き先は？",
+    "checkIn": "チェックイン",
+    "checkOut": "チェックアウト",
+    "guests": "宿泊人数"
+  },
+  "common": {
+    "viewDetails": "詳細を見る",
+    "applyNow": "今すぐ申し込む",
+    "bookNow": "今すぐ予約",
+    "perNight": "/泊",
+    "free": "無料"
+  }
+}

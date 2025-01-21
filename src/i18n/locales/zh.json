@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "stays": "住宿",
+    "work": "工作",
+    "travel": "旅行",
+    "transportation": "交通",
+    "signIn": "登录"
+  },
+  "search": {
+    "destination": "您想去哪里？",
+    "checkIn": "入住",
+    "checkOut": "退房",
+    "guests": "旅客"
+  },
+  "common": {
+    "viewDetails": "查看详情",
+    "applyNow": "立即申请",
+    "bookNow": "立即预订",
+    "perNight": "/晚",
+    "free": "免费"
+  }
+}

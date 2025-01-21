@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "stays": "Hébergements",
+    "work": "Travail",
+    "travel": "Voyage",
+    "transportation": "Transport",
+    "signIn": "Se connecter"
+  },
+  "search": {
+    "destination": "Où allez-vous ?",
+    "checkIn": "Arrivée",
+    "checkOut": "Départ",
+    "guests": "Voyageurs"
+  },
+  "common": {
+    "viewDetails": "Voir les détails",
+    "applyNow": "Postuler maintenant",
+    "bookNow": "Réserver maintenant",
+    "perNight": "/nuit",
+    "free": "Gratuit"
+  }
+}
