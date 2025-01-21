@@ -3,11 +3,14 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, Briefcase, Home, Plane, Car, Moon, Sun } from "lucide-react";
 import { useState, useEffect } from "react";
 import { scrollToSection, scrollToTop } from "@/utils/scrollUtils";
+import { useTranslation } from "react-i18next";
+import { LanguageSelector } from "./LanguageSelector";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     // Check local storage for dark mode preference
@@ -51,7 +54,7 @@ export const Navigation = () => {
               className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               <Home className="w-5 h-5" />
-              <span>Stays</span>
+              <span>{t('nav.stays')}</span>
             </Link>
             <Link 
               to="/" 
@@ -59,7 +62,7 @@ export const Navigation = () => {
               className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               <Briefcase className="w-5 h-5" />
-              <span>Work</span>
+              <span>{t('nav.work')}</span>
             </Link>
             <Link 
               to="/" 
@@ -67,7 +70,7 @@ export const Navigation = () => {
               className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               <Plane className="w-5 h-5" />
-              <span>Travel</span>
+              <span>{t('nav.travel')}</span>
             </Link>
             <Link 
               to="/" 
@@ -75,16 +78,9 @@ export const Navigation = () => {
               className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               <Car className="w-5 h-5" />
-              <span>Transportation</span>
+              <span>{t('nav.transportation')}</span>
             </Link>
-            <a 
-              href="https://talklikealocal.org/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-sm font-semibold bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text hover:opacity-80 transition-opacity"
-            >
-              TalkLikeALocal
-            </a>
+            <LanguageSelector />
             <Button 
               variant="ghost"
               size="icon"
@@ -100,13 +96,14 @@ export const Navigation = () => {
             </Button>
             <Link to="/signin">
               <Button className="bg-gradient-ocean text-white hover:opacity-90 transition-opacity">
-                Sign In
+                {t('nav.signIn')}
               </Button>
             </Link>
           </div>
           
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
+            <LanguageSelector />
             <Button 
               variant="ghost"
               size="icon"
@@ -141,7 +138,7 @@ export const Navigation = () => {
                 className="flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
               >
                 <Home className="w-5 h-5" />
-                <span>Stays</span>
+                <span>{t('nav.stays')}</span>
               </Link>
               <Link 
                 to="/" 
@@ -152,7 +149,7 @@ export const Navigation = () => {
                 className="flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
               >
                 <Briefcase className="w-5 h-5" />
-                <span>Work</span>
+                <span>{t('nav.work')}</span>
               </Link>
               <Link 
                 to="/" 
@@ -163,7 +160,7 @@ export const Navigation = () => {
                 className="flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
               >
                 <Plane className="w-5 h-5" />
-                <span>Travel</span>
+                <span>{t('nav.travel')}</span>
               </Link>
               <Link 
                 to="/" 
@@ -174,19 +171,11 @@ export const Navigation = () => {
                 className="flex items-center gap-2 px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
               >
                 <Car className="w-5 h-5" />
-                <span>Transportation</span>
+                <span>{t('nav.transportation')}</span>
               </Link>
-              <a 
-                href="https://talklikealocal.org/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text hover:opacity-80 transition-opacity"
-              >
-                TalkLikeALocal
-              </a>
               <Link to="/signin" onClick={() => setIsMenuOpen(false)}>
                 <Button className="mx-4 bg-gradient-ocean text-white hover:opacity-90">
-                  Sign In
+                  {t('nav.signIn')}
                 </Button>
               </Link>
             </div>

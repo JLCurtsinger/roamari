@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "stays": "Stays",
+    "work": "Work",
+    "travel": "Travel",
+    "transportation": "Transportation",
+    "signIn": "Sign In"
+  },
+  "search": {
+    "destination": "Where are you going?",
+    "checkIn": "Check in",
+    "checkOut": "Check out",
+    "guests": "Guests"
+  },
+  "common": {
+    "viewDetails": "View Details",
+    "applyNow": "Apply Now",
+    "bookNow": "Book Now",
+    "perNight": "/night",
+    "free": "Free"
+  }
+}
