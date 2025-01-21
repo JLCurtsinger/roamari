@@ -27,18 +27,22 @@ export default {
         primary: {
           DEFAULT: "#0EA5E9",
           foreground: "#FFFFFF",
+          dark: "#0284C7",
         },
         secondary: {
           DEFAULT: "#F97316",
           foreground: "#FFFFFF",
+          dark: "#EA580C",
         },
         accent: {
           DEFAULT: "#22C55E",
           foreground: "#FFFFFF",
+          dark: "#16A34A",
         },
         muted: {
           DEFAULT: "#D3E4FD",
           foreground: "#1E293B",
+          dark: "#1E293B",
         },
       },
       backgroundImage: {
@@ -47,25 +51,10 @@ export default {
         'gradient-ocean': 'linear-gradient(90deg, hsla(199, 69%, 84%, 1) 0%, hsla(187, 72%, 59%, 1) 100%)',
         'gradient-sky': 'linear-gradient(90deg, hsla(221, 45%, 73%, 1) 0%, hsla(220, 78%, 29%, 1) 100%)',
         'gradient-hero': 'linear-gradient(to right, #0A0A0A 0%, #221F26 100%)',
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        'dark-gradient-travel': 'linear-gradient(90deg, hsla(186, 33%, 20%, 1) 0%, hsla(216, 41%, 25%, 1) 100%)',
+        'dark-gradient-sunset': 'linear-gradient(90deg, hsla(24, 70%, 45%, 1) 0%, hsla(341, 71%, 38%, 1) 100%)',
+        'dark-gradient-ocean': 'linear-gradient(90deg, hsla(199, 69%, 24%, 1) 0%, hsla(187, 72%, 29%, 1) 100%)',
+        'dark-gradient-sky': 'linear-gradient(90deg, hsla(221, 45%, 23%, 1) 0%, hsla(220, 78%, 19%, 1) 100%)',
       },
     },
   },

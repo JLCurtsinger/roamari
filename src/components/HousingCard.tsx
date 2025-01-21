@@ -38,7 +38,7 @@ export const HousingCard = ({
   };
 
   return (
-    <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+    <Card className="overflow-hidden hover:shadow-lg transition-shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="relative">
         <img
           src={image}
@@ -46,7 +46,7 @@ export const HousingCard = ({
           className="w-full h-48 object-cover"
         />
         <Badge 
-          className="absolute top-4 left-4 bg-gradient-sunset text-white"
+          className="absolute top-4 left-4 bg-gradient-sunset dark:bg-dark-gradient-sunset text-white"
           variant="secondary"
         >
           {isCamping ? <Tent className="w-4 h-4 mr-1" /> : <Star className="w-4 h-4 mr-1" />}
@@ -54,8 +54,8 @@ export const HousingCard = ({
         </Badge>
       </div>
       <CardHeader>
-        <CardTitle className="text-xl">{title}</CardTitle>
-        <div className="flex items-center gap-2 text-muted-foreground">
+        <CardTitle className="text-xl dark:text-white">{title}</CardTitle>
+        <div className="flex items-center gap-2 text-muted-foreground dark:text-gray-300">
           <MapPin className="w-4 h-4" />
           {location}
         </div>
@@ -63,27 +63,27 @@ export const HousingCard = ({
       <CardContent>
         <div className="space-y-4">
           <div className="flex flex-wrap gap-2">
-            <Badge variant="secondary" className="bg-gradient-travel text-gray-700">
+            <Badge variant="secondary" className="bg-gradient-travel dark:bg-dark-gradient-travel text-gray-700 dark:text-white">
               {type}
             </Badge>
             {wifiSpeed && (
-              <Badge variant="outline" className="flex items-center gap-1">
+              <Badge variant="outline" className="flex items-center gap-1 dark:text-white dark:border-gray-600">
                 <Wifi className="w-4 h-4" />
                 {wifiSpeed}Mbps
               </Badge>
             )}
             {availability && (
-              <Badge variant="outline">
+              <Badge variant="outline" className="dark:text-white dark:border-gray-600">
                 {availability}
               </Badge>
             )}
           </div>
           <div className="flex items-center justify-between">
-            <div className="text-lg font-semibold">
-              {price}<span className="text-sm text-muted-foreground">{price === "Free" ? "" : "/night"}</span>
+            <div className="text-lg font-semibold dark:text-white">
+              {price}<span className="text-sm text-muted-foreground dark:text-gray-300">{price === "Free" ? "" : "/night"}</span>
             </div>
             <Button 
-              className="bg-gradient-sunset text-white hover:opacity-90"
+              className="bg-gradient-sunset dark:bg-dark-gradient-sunset text-white hover:opacity-90"
               onClick={handleViewDetails}
             >
               View Details
