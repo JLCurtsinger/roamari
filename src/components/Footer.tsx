@@ -77,7 +77,15 @@ export const Footer = () => {
               Roamari
             </Link>
             <p className="mt-4 text-sm text-gray-400">
-              © {new Date().getFullYear()} Roamari. All rights reserved.
+              © {new Date().getFullYear()} Roamari. All rights reserved. {" "}
+              <a 
+                href="https://elev8.dev" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:text-primary transition-colors"
+              >
+                by elev8.dev
+              </a>
             </p>
           </div>
         </div>
