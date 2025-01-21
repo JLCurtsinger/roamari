@@ -35,6 +35,12 @@ i18n
     returnEmptyString: false,
     react: {
       useSuspense: true,
+      bindI18n: 'languageChanged loaded',
+      bindI18nStore: 'added removed',
+      transEmptyNodeValue: '',
+      transSupportBasicHtmlNodes: true,
+      transKeepBasicHtmlNodesFor: ['br', 'strong', 'i', 'p'],
+      useSuspense: true,
     },
   });
 

@@ -17,6 +17,46 @@
     "applyNow": "Apply Now",
     "bookNow": "Book Now",
     "perNight": "/night",
-    "free": "Free"
+    "free": "Free",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "home": {
+    "hero": {
+      "title": "Explore, Work, Live",
+      "subtitle": "Anywhere",
+      "description": "Your journey to a location-independent lifestyle starts here."
+    },
+    "categories": {
+      "stays": {
+        "title": "Stays",
+        "description": "Find your perfect home away from home",
+        "button": "Explore Stays"
+      },
+      "work": {
+        "title": "Work",
+        "description": "Discover remote work opportunities",
+        "button": "Find Work"
+      },
+      "travel": {
+        "title": "Travel",
+        "description": "Plan your next adventure",
+        "button": "Plan Travel"
+      }
+    },
+    "sections": {
+      "opportunities": "Latest Opportunities",
+      "featuredStays": "Featured Stays",
+      "popularDestinations": "Popular Destinations"
+    }
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "company": "Company",
+    "about": "About Us",
+    "contact": "Contact",
+    "copyright": "© {year} Roamari. All rights reserved.",
+    "by": "by elev8.dev"
   }
 }

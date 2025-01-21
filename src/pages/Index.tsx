@@ -10,9 +10,11 @@ import { stays } from "@/data/mockData";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Stay } from "@/types/stays";
+import { useTranslation } from "react-i18next";
 
 const Index = () => {
   const [selectedStayType, setSelectedStayType] = useState<string>("All");
+  const { t } = useTranslation();
   
   const filterStays = (stays: Stay[]) => {
     if (selectedStayType === "All") return stays;
@@ -55,27 +57,27 @@ const Index = () => {
   const categories = [
     {
       icon: Home,
-      title: "Stays",
-      description: "Find your perfect home away from home",
-      buttonText: "Explore Stays",
+      title: t('home.categories.stays.title'),
+      description: t('home.categories.stays.description'),
+      buttonText: t('home.categories.stays.button'),
       buttonClassName: "bg-gradient-ocean",
       iconClassName: "text-primary",
       sectionId: "stays"
     },
     {
       icon: Briefcase,
-      title: "Work",
-      description: "Discover remote work opportunities",
-      buttonText: "Find Work",
+      title: t('home.categories.work.title'),
+      description: t('home.categories.work.description'),
+      buttonText: t('home.categories.work.button'),
       buttonClassName: "bg-gradient-sunset",
       iconClassName: "text-secondary",
       sectionId: "work"
     },
     {
       icon: Plane,
-      title: "Travel",
-      description: "Plan your next adventure",
-      buttonText: "Plan Travel",
+      title: t('home.categories.travel.title'),
+      description: t('home.categories.travel.description'),
+      buttonText: t('home.categories.travel.button'),
       buttonClassName: "bg-gradient-sky",
       iconClassName: "text-accent",
       sectionId: "travel"
@@ -87,7 +89,6 @@ const Index = () => {
       <Navigation />
       
       <main id="main-content">
-        {/* Hero Section */}
         <section 
           className="relative pt-32 pb-20 px-4 min-h-[600px] flex items-center bg-cover bg-center"
           style={{
@@ -95,17 +96,19 @@ const Index = () => {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
-          aria-label="Welcome to Roamari"
+          aria-label={t('home.hero.title')}
         >
-          <div className="absolute inset-0 bg-black/40" role="presentation" /> 
+          <div className="absolute inset-0 bg-black/40" role="presentation" />
           <div className="container mx-auto text-center text-white relative z-10">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Explore, Work, Live
+              {t('home.hero.title')}
               <br />
-              <span className="bg-gradient-sunset text-transparent bg-clip-text">Anywhere</span>
+              <span className="bg-gradient-sunset text-transparent bg-clip-text">
+                {t('home.hero.subtitle')}
+              </span>
             </h1>
             <p className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto">
-              Your journey to a location-independent lifestyle starts here.
+              {t('home.hero.description')}
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
@@ -118,10 +121,11 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Jobs Section */}
         <section id="work" className="py-16 px-4 bg-white scroll-mt-16" aria-labelledby="work-section">
           <div className="container mx-auto">
-            <h2 id="work-section" className="text-3xl font-bold text-gray-900 mb-8">Latest Opportunities</h2>
+            <h2 id="work-section" className="text-3xl font-bold text-gray-900 mb-8">
+              {t('home.sections.opportunities')}
+            </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {jobs.map((job, index) => (
                 <JobCard key={index} {...job} />
@@ -130,10 +134,11 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Housing Section */}
         <section id="stays" className="py-16 px-4 bg-gray-50 scroll-mt-16" aria-labelledby="stays-section">
           <div className="container mx-auto">
-            <h2 id="stays-section" className="text-3xl font-bold text-gray-900 mb-8">Featured Stays</h2>
+            <h2 id="stays-section" className="text-3xl font-bold text-gray-900 mb-8">
+              {t('home.sections.featuredStays')}
+            </h2>
             
             <div className="flex gap-2 mb-6 overflow-x-auto pb-2" role="tablist" aria-label="Filter stays by type">
               {["All", "Regular", "Camping", "Campground", "Free Camping"].map((type) => (
@@ -164,10 +169,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Travel Section */}
         <TravelDestinations />
-
-        {/* Transportation Section */}
         <TransportationSection />
       </main>
     </div>
