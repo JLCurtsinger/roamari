@@ -31,46 +31,50 @@ export const SearchFilters = () => {
 
   return (
     <div 
-      className="bg-white/95 p-2 rounded-full shadow-lg max-w-6xl mx-auto backdrop-blur-md"
+      className="bg-white/95 rounded-lg shadow-lg max-w-6xl mx-auto backdrop-blur-md border border-gray-200"
       role="search"
       aria-label="Search destinations"
     >
-      <div className="flex flex-col md:flex-row items-center gap-2 md:gap-0">
-        <DestinationInput destination={destination} setDestination={setDestination} />
+      <div className="flex flex-col md:flex-row items-stretch">
+        <div className="flex-1 min-w-[200px] border-b md:border-b-0 md:border-r border-gray-200">
+          <DestinationInput destination={destination} setDestination={setDestination} />
+        </div>
         
-        <div className="hidden md:block w-px h-14 bg-gray-200 mx-2" role="separator" />
+        <div className="flex-1 border-b md:border-b-0 md:border-r border-gray-200">
+          <DateSelector
+            label="Check in"
+            date={checkIn}
+            isOpen={isCheckInOpen}
+            setIsOpen={setIsCheckInOpen}
+            onSelect={handleCheckInSelect}
+            ariaLabel="Select check-in date"
+          />
+        </div>
         
-        <DateSelector
-          label="Check in"
-          date={checkIn}
-          isOpen={isCheckInOpen}
-          setIsOpen={setIsCheckInOpen}
-          onSelect={handleCheckInSelect}
-          ariaLabel="Select check-in date"
-        />
+        <div className="flex-1 border-b md:border-b-0 md:border-r border-gray-200">
+          <DateSelector
+            label="Check out"
+            date={checkOut}
+            isOpen={isCheckOutOpen}
+            setIsOpen={setIsCheckOutOpen}
+            onSelect={handleCheckOutSelect}
+            ariaLabel="Select check-out date"
+          />
+        </div>
         
-        <div className="hidden md:block w-px h-14 bg-gray-200 mx-2" role="separator" />
-        
-        <DateSelector
-          label="Check out"
-          date={checkOut}
-          isOpen={isCheckOutOpen}
-          setIsOpen={setIsCheckOutOpen}
-          onSelect={handleCheckOutSelect}
-          ariaLabel="Select check-out date"
-        />
-        
-        <div className="hidden md:block w-px h-14 bg-gray-200 mx-2" role="separator" />
-        
-        <GuestCounter guests={guests} onGuestChange={handleGuestChange} />
+        <div className="flex-1 border-b md:border-b-0 md:border-r border-gray-200">
+          <GuestCounter guests={guests} onGuestChange={handleGuestChange} />
+        </div>
 
-        <Button 
-          className="ml-2 rounded-full bg-gradient-sunset hover:opacity-90 transition-opacity p-6"
-          size="icon"
-          aria-label="Search"
-        >
-          <Search className="w-5 h-5 text-white" />
-        </Button>
+        <div className="p-2 flex items-center justify-center">
+          <Button 
+            className="bg-gradient-sunset hover:opacity-90 transition-opacity w-full md:w-auto px-8"
+            size="lg"
+            aria-label="Search"
+          >
+            <Search className="w-5 h-5 text-white" />
+          </Button>
+        </div>
       </div>
     </div>
   );

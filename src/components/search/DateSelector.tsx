@@ -22,16 +22,10 @@ export const DateSelector = ({
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger asChild>
-        <div className="relative group">
-          <div 
-            className="px-6 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors"
-            role="button"
-            aria-label={ariaLabel}
-          >
-            <div className="text-sm font-medium text-gray-800">{label}</div>
-            <div className="text-base text-gray-900">
-              {date ? format(date, "MMM dd, yyyy") : "Add dates"}
-            </div>
+        <div className="relative group p-4 cursor-pointer hover:bg-gray-50 transition-colors">
+          <div className="text-sm font-medium text-gray-800 mb-1">{label}</div>
+          <div className="text-base text-gray-900">
+            {date ? format(date, "MMM dd, yyyy") : "Add dates"}
           </div>
         </div>
       </PopoverTrigger>
