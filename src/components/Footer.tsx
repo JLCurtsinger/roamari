@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import { scrollToSection, scrollToTop } from "@/utils/scrollUtils";
 
 export const Footer = () => {
@@ -12,7 +11,7 @@ export const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-12 mt-20">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Quick Links */}
           <div>
             <h3 className="text-xl font-semibold mb-4 bg-gradient-sunset text-transparent bg-clip-text">Quick Links</h3>
@@ -46,25 +45,6 @@ export const Footer = () => {
                 <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
               </li>
             </ul>
-          </div>
-
-          {/* Social Media */}
-          <div className="text-center">
-            <h3 className="text-xl font-semibold mb-4 bg-gradient-sky text-transparent bg-clip-text">Connect</h3>
-            <div className="flex justify-center space-x-4">
-              <a href="#" className="hover:text-primary transition-colors" aria-label="Facebook">
-                <Facebook size={24} />
-              </a>
-              <a href="#" className="hover:text-primary transition-colors" aria-label="Twitter">
-                <Twitter size={24} />
-              </a>
-              <a href="#" className="hover:text-primary transition-colors" aria-label="Instagram">
-                <Instagram size={24} />
-              </a>
-              <a href="#" className="hover:text-primary transition-colors" aria-label="LinkedIn">
-                <Linkedin size={24} />
-              </a>
-            </div>
           </div>
 
           {/* Logo and Copyright */}
