@@ -11,24 +11,27 @@ import { DestinationDetails } from "./pages/DestinationDetails";
 import { Footer } from "./components/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import "./i18n/config";
+import { Suspense } from "react";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/create-account" element={<CreateAccount />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path="/stay-details/:id" element={<StayDetails />} />
-        <Route path="/job-application" element={<JobApplication />} />
-        <Route path="/destination-details/:id" element={<DestinationDetails />} />
-      </Routes>
-      <Footer />
-      <Toaster />
-    </Router>
+    <Suspense fallback="Loading...">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/create-account" element={<CreateAccount />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/stay-details/:id" element={<StayDetails />} />
+          <Route path="/job-application" element={<JobApplication />} />
+          <Route path="/destination-details/:id" element={<DestinationDetails />} />
+        </Routes>
+        <Footer />
+        <Toaster />
+      </Router>
+    </Suspense>
   );
 }
 

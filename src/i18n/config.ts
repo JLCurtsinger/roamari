@@ -30,6 +30,12 @@ i18n
       order: ['localStorage', 'navigator'],
       caches: ['localStorage'],
     },
+    load: 'languageOnly',
+    returnNull: false,
+    returnEmptyString: false,
+    react: {
+      useSuspense: true,
+    },
   });
 
 export default i18n;

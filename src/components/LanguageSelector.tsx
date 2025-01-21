@@ -7,6 +7,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Globe } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
 
 const languages = [
   { code: 'en', name: 'English' },
@@ -20,14 +21,29 @@ const languages = [
 
 export const LanguageSelector = () => {
   const { i18n } = useTranslation();
+  const { toast } = useToast();
 
-  const handleLanguageChange = (value: string) => {
-    i18n.changeLanguage(value);
-    localStorage.setItem('i18nextLng', value);
+  const handleLanguageChange = async (value: string) => {
+    try {
+      await i18n.changeLanguage(value);
+      localStorage.setItem('i18nextLng', value);
+      toast({
+        title: "Language Changed",
+        description: `The site language has been updated to ${getCurrentLanguageName(value)}`,
+      });
+    } catch (error) {
+      console.error('Failed to change language:', error);
+      toast({
+        title: "Error",
+        description: "Failed to change language. Defaulting to English.",
+        variant: "destructive",
+      });
+      i18n.changeLanguage('en');
+    }
   };
 
-  const getCurrentLanguageName = () => {
-    return languages.find(lang => lang.code === i18n.language)?.name || 'English';
+  const getCurrentLanguageName = (code: string = i18n.language) => {
+    return languages.find(lang => lang.code === code)?.name || 'English';
   };
 
   return (
