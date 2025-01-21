@@ -25,10 +25,10 @@ export const JobCard = ({ title, company, location, salary, type, duration }: Jo
   };
 
   return (
-    <Card className="hover:shadow-lg transition-shadow">
+    <Card className="hover:shadow-lg transition-shadow dark:bg-gray-800/95 dark:border-gray-700">
       <CardHeader>
-        <CardTitle className="text-xl text-foreground dark:text-white">{title}</CardTitle>
-        <div className="text-sm text-muted-foreground dark:text-gray-300">{company}</div>
+        <CardTitle className="text-xl font-bold text-gray-900 dark:text-white">{title}</CardTitle>
+        <div className="text-sm font-medium text-gray-700 dark:text-gray-200">{company}</div>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
@@ -36,18 +36,20 @@ export const JobCard = ({ title, company, location, salary, type, duration }: Jo
             <Badge variant="secondary" className="bg-gradient-travel text-gray-700 dark:bg-dark-gradient-travel dark:text-white">
               {type}
             </Badge>
-            <Badge variant="outline" className="dark:text-gray-200">{duration}</Badge>
+            <Badge variant="outline" className="text-gray-700 dark:text-gray-200 border-gray-300 dark:border-gray-600">
+              {duration}
+            </Badge>
           </div>
           <div className="space-y-2">
-            <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+            <div className="flex items-center gap-2 text-gray-700 dark:text-gray-200">
               <MapPin className="w-4 h-4" />
               {location}
             </div>
-            <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+            <div className="flex items-center gap-2 text-gray-700 dark:text-gray-200">
               <DollarSign className="w-4 h-4" />
               {salary}
             </div>
-            <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+            <div className="flex items-center gap-2 text-gray-700 dark:text-gray-200">
               <Clock className="w-4 h-4" />
               {duration}
             </div>
