@@ -10,7 +10,11 @@
     "destination": "¿A dónde vas?",
     "checkIn": "Llegada",
     "checkOut": "Salida",
-    "guests": "Huéspedes"
+    "guests": "Huéspedes",
+    "placeholder": {
+      "destination": "Ingresa el destino",
+      "guests": "Selecciona número de huéspedes"
+    }
   },
   "common": {
     "viewDetails": "Ver Detalles",
@@ -20,7 +24,8 @@
     "free": "Gratis",
     "loading": "Cargando...",
     "error": "Error",
-    "success": "Éxito"
+    "success": "Éxito",
+    "languageChanged": "Idioma cambiado exitosamente"
   },
   "home": {
     "hero": {
@@ -48,7 +53,8 @@
     "sections": {
       "opportunities": "Últimas Oportunidades",
       "featuredStays": "Alojamientos Destacados",
-      "popularDestinations": "Destinos Populares"
+      "popularDestinations": "Destinos Populares",
+      "transportation": "Opciones de Transporte"
     }
   },
   "footer": {
@@ -58,5 +64,18 @@
     "contact": "Contacto",
     "copyright": "© {year} Roamari. Todos los derechos reservados.",
     "by": "por elev8.dev"
+  },
+  "jobs": {
+    "location": "Ubicación",
+    "salary": "Salario",
+    "type": "Tipo",
+    "duration": "Duración"
+  },
+  "stays": {
+    "wifi": "Velocidad WiFi",
+    "availability": "Disponibilidad",
+    "features": "Características",
+    "price": "Precio",
+    "location": "Ubicación"
   }
 }

@@ -9,18 +9,14 @@ import {
 import { Globe } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
+// Only include languages with complete translations
 const languages = [
   { code: 'en', name: 'English' },
-  { code: 'es', name: 'Español' },
-  { code: 'fr', name: 'Français' },
-  { code: 'de', name: 'Deutsch' },
-  { code: 'zh', name: '中文' },
-  { code: 'ja', name: '日本語' },
-  { code: 'ar', name: 'العربية' },
+  { code: 'es', name: 'Español' }
 ];
 
 export const LanguageSelector = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const { toast } = useToast();
 
   const handleLanguageChange = async (value: string) => {
@@ -28,13 +24,13 @@ export const LanguageSelector = () => {
       await i18n.changeLanguage(value);
       localStorage.setItem('i18nextLng', value);
       toast({
-        title: "Language Changed",
-        description: `The site language has been updated to ${getCurrentLanguageName(value)}`,
+        title: t('common.success'),
+        description: t('common.languageChanged'),
       });
     } catch (error) {
       console.error('Failed to change language:', error);
       toast({
-        title: "Error",
+        title: t('common.error'),
         description: "Failed to change language. Defaulting to English.",
         variant: "destructive",
       });

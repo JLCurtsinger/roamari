@@ -3,11 +3,6 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import enTranslations from './locales/en.json';
 import esTranslations from './locales/es.json';
-import frTranslations from './locales/fr.json';
-import deTranslations from './locales/de.json';
-import zhTranslations from './locales/zh.json';
-import jaTranslations from './locales/ja.json';
-import arTranslations from './locales/ar.json';
 
 i18n
   .use(LanguageDetector)
@@ -16,11 +11,6 @@ i18n
     resources: {
       en: { translation: enTranslations },
       es: { translation: esTranslations },
-      fr: { translation: frTranslations },
-      de: { translation: deTranslations },
-      zh: { translation: zhTranslations },
-      ja: { translation: jaTranslations },
-      ar: { translation: arTranslations },
     },
     fallbackLng: 'en',
     interpolation: {
@@ -34,7 +24,6 @@ i18n
     returnNull: false,
     returnEmptyString: false,
     react: {
-      useSuspense: true,
       bindI18n: 'languageChanged loaded',
       bindI18nStore: 'added removed',
       transEmptyNodeValue: '',
