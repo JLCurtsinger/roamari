@@ -25,7 +25,20 @@
     "loading": "Loading...",
     "error": "Error",
     "success": "Success",
-    "languageChanged": "Language changed successfully"
+    "languageChanged": "Language changed successfully",
+    "features": "Features",
+    "amenities": "Amenities",
+    "reviews": "Reviews",
+    "price": "Price",
+    "location": "Location",
+    "availability": "Availability",
+    "type": "Type",
+    "description": "Description",
+    "all": "All",
+    "regular": "Regular",
+    "camping": "Camping",
+    "paid": "Paid",
+    "mbps": "Mbps"
   },
   "home": {
     "hero": {
@@ -69,13 +82,38 @@
     "location": "Location",
     "salary": "Salary",
     "type": "Type",
-    "duration": "Duration"
+    "duration": "Duration",
+    "remote": "Remote",
+    "fullTime": "Full-time",
+    "contract": "Contract",
+    "gig": "Gig",
+    "permanent": "Permanent",
+    "day": "day",
+    "hour": "hour",
+    "month": "month"
   },
   "stays": {
     "wifi": "WiFi Speed",
     "availability": "Availability",
     "features": "Features",
     "price": "Price",
-    "location": "Location"
+    "location": "Location",
+    "studio": "Studio Apartment",
+    "cabin": "Cabin",
+    "condo": "Condo",
+    "campground": "Campground",
+    "freeCamping": "Free Camping"
+  },
+  "transportation": {
+    "carRental": "Car Rental",
+    "bikeRental": "Bike Rental",
+    "publicTransport": "Public Transport",
+    "support": "24/7 Support",
+    "insurance": "Insurance Included",
+    "cancellation": "Free Cancellation",
+    "unlimited": "Unlimited Mileage",
+    "helmet": "Helmet Included",
+    "lock": "Lock Provided",
+    "multipleLocations": "Multiple Locations"
   }
 }

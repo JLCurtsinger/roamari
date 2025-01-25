@@ -25,7 +25,20 @@
     "loading": "Cargando...",
     "error": "Error",
     "success": "Éxito",
-    "languageChanged": "Idioma cambiado exitosamente"
+    "languageChanged": "Idioma cambiado exitosamente",
+    "features": "Características",
+    "amenities": "Comodidades",
+    "reviews": "Reseñas",
+    "price": "Precio",
+    "location": "Ubicación",
+    "availability": "Disponibilidad",
+    "type": "Tipo",
+    "description": "Descripción",
+    "all": "Todos",
+    "regular": "Regular",
+    "camping": "Camping",
+    "paid": "De pago",
+    "mbps": "Mbps"
   },
   "home": {
     "hero": {
@@ -69,13 +82,38 @@
     "location": "Ubicación",
     "salary": "Salario",
     "type": "Tipo",
-    "duration": "Duración"
+    "duration": "Duración",
+    "remote": "Remoto",
+    "fullTime": "Tiempo completo",
+    "contract": "Contrato",
+    "gig": "Trabajo temporal",
+    "permanent": "Permanente",
+    "day": "día",
+    "hour": "hora",
+    "month": "mes"
   },
   "stays": {
     "wifi": "Velocidad WiFi",
     "availability": "Disponibilidad",
     "features": "Características",
     "price": "Precio",
-    "location": "Ubicación"
+    "location": "Ubicación",
+    "studio": "Apartamento Estudio",
+    "cabin": "Cabaña",
+    "condo": "Condominio",
+    "campground": "Camping",
+    "freeCamping": "Camping Gratuito"
+  },
+  "transportation": {
+    "carRental": "Alquiler de Coches",
+    "bikeRental": "Alquiler de Bicicletas",
+    "publicTransport": "Transporte Público",
+    "support": "Soporte 24/7",
+    "insurance": "Seguro Incluido",
+    "cancellation": "Cancelación Gratuita",
+    "unlimited": "Kilometraje Ilimitado",
+    "helmet": "Casco Incluido",
+    "lock": "Candado Incluido",
+    "multipleLocations": "Múltiples Ubicaciones"
   }
 }
